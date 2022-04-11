@@ -5,18 +5,20 @@ import styles from "../styles/Home.module.css";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
 import Navbar from "../components/Navbar";
+import { AccountContext } from "../context";
 import { ethers } from "ethers";
+import { useState } from "react";
 
 const navigation: String[] = [
-  "Mint",
+  "mint",
   "Home",
   "Discord",
   "Marketplace",
   "Account",
-  "Connect Wallet",
 ];
 
 const Home: NextPage = () => {
+  const [account, setAccount] = useState<any>(null);
   const connectWeb3Modal = () => {
     const web3Modal = new Web3Modal({
       cacheProvider: false,
@@ -37,14 +39,17 @@ const Home: NextPage = () => {
       const connection = await web3Modal.connect();
       const provider = new ethers.providers.Web3Provider(connection);
       const accounts = await provider.listAccounts();
+      setAccount(accounts[0]);
     } catch (err) {
       console.log(err);
     }
   };
   return (
-    <Box height="100vh" bg="brand.900">
-      <Navbar navigation={navigation} connect={connect} />
-    </Box>
+    <AccountContext.Provider value={account}>
+      <Box height="100vh" bg="brand.900">
+        <Navbar navigation={navigation} connect={connect} account={account} />
+      </Box>
+    </AccountContext.Provider>
   );
 };
 

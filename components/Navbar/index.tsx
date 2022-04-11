@@ -1,7 +1,9 @@
 import { Image, Flex, Button, HStack, chakra, Link } from "@chakra-ui/react";
 import Logo from "../../public/Assets/Logos/main.png";
+import { useRouter } from "next/router";
 
-export default function index({ navigation, connect }: any) {
+export default function index({ navigation, connect, account }: any) {
+  const router = useRouter();
   return (
     <chakra.header>
       <Flex justifyContent="space-around" px="6" py="5">
@@ -11,15 +13,25 @@ export default function index({ navigation, connect }: any) {
         <HStack as="nav" spacing="5" paddingRight={"20px"}>
           {navigation.map((item: string, i: number) => (
             <Link key={i}>
-              {item === "Connect Wallet" ? (
-                <Button variant="nav" onClick={connect}>
-                  {item}
-                </Button>
-              ) : (
-                <Button variant="nav"> {item} </Button>
-              )}
+              <Button
+                variant="nav"
+                onClick={() => {
+                  router.push(`/${item}`);
+                }}
+              >
+                {item}
+              </Button>
             </Link>
           ))}
+          <Link>
+            {account ? (
+              <Button variant="nav">{account}</Button>
+            ) : (
+              <Button variant="nav" onClick={connect}>
+                Connect Wallet
+              </Button>
+            )}
+          </Link>
         </HStack>
       </Flex>
     </chakra.header>
