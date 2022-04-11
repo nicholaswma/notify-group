@@ -11,9 +11,13 @@ const main = async () => {
   console.log("Token Contract deployed to:", ngtContract.address);
 
   let txn = await nftContract
-    .connect(address2)
+    .connect(address2, address2.address)
     .mint({ value: 5000000000000000 });
   await txn.wait();
+  console.log(txn);
+
+  let remaining = await nftContract.getMintCount();
+  console.log(remaining);
 };
 
 const runMain = async () => {

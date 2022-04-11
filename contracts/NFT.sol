@@ -12,9 +12,9 @@ contract NFT is ERC721URIStorage {
     address[] public requested;
     address public owner;
 
-    Counters.Counter private _tokenIds;
+    Counters.Counter public _tokenIds;
 
-    constructor() ERC721 ('Notify Group NFT', 'NOTIFY') {
+    constructor() ERC721 ('Notify  test Group NFT', 'NOTIFY') {
         owner = msg.sender;
         console.log('Creating NOTIFY NFT');
     }
@@ -38,5 +38,9 @@ contract NFT is ERC721URIStorage {
     function getRequested() public view returns(address[] memory) {
         require(msg.sender == owner);
         return requested;
+    }
+
+    function getMintCount() public view returns(uint) {
+        return _tokenIds.current();
     }
 }
