@@ -1,8 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Flex, Image, Text, Box, Button } from "@chakra-ui/react";
-import { ethers } from "ethers";
 import { AccountContext } from "../context";
-import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
 import {
   requestAirdrop,
   checkOwner,
