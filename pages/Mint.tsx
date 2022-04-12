@@ -1,10 +1,14 @@
-import { Flex, Box, Text, Button, Spinner } from "@chakra-ui/react";
-import Image from "next/image";
 import React, { useState, useContext, useEffect } from "react";
-import NFTImage from "../public/Assets/nft-image.png";
+import Image from "next/image";
+import { Flex, Box, Text, Button, Spinner } from "@chakra-ui/react";
+
+import { AccountContext } from "../context";
 import { mintNFT, getRemaining } from "../utils/Operations";
 
+import NFTImage from "../public/Assets/nft-image.png";
+
 export default function Mint() {
+  const account = useContext(AccountContext);
   const [remaining, setRemaining] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -46,7 +50,9 @@ export default function Mint() {
           </Text>
           <Text>{5000 - remaining}/5000 Remaining</Text>
         </Box>
-        <Button onClick={mint}>{loading ? <Spinner /> : "Mint Now"}</Button>
+        <Button onClick={mint} isDisabled={account ? false : true}>
+          {loading ? <Spinner /> : "Mint Now"}
+        </Button>
       </Flex>
     </Flex>
   );

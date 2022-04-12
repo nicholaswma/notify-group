@@ -1,5 +1,6 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
 import React, { useState, useEffect, useContext } from "react";
+import { Box, Flex, Text } from "@chakra-ui/react";
+
 import { AccountContext } from "../context";
 
 import { getBalanceOf, verifyNFT } from "../utils/Operations";

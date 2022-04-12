@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Flex, Image, Text, Box, Button } from "@chakra-ui/react";
+
 import { AccountContext } from "../context";
 import {
   requestAirdrop,
@@ -27,6 +28,7 @@ export default function Airdrop() {
   const checkClaimed = async () => {
     if (account) {
       let claimed = await checkIfClaimed(account);
+      console.log(claimed);
       setClaimed(claimed);
     }
   };
@@ -45,7 +47,7 @@ export default function Airdrop() {
       <Flex flexDir="column" justifyContent="center">
         <Box textAlign="center">
           <Text textAlign={"center"}>Claim Airdrop!</Text>
-          <Button onClick={requestAirdrop} disabled={claimed}>
+          <Button onClick={requestAirdrop} disabled={claimed || !account}>
             Claim
           </Button>
           {isOwner ? (

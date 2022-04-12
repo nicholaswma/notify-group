@@ -15,7 +15,7 @@ contract NFT is ERC721URIStorage {
 
     Counters.Counter public _tokenIds;
 
-    constructor() ERC721 ('Notify  test Group NFT', 'NOTIFY') {
+    constructor() ERC721 ('Notify Group NFT', 'NOTIFY') {
         owner = msg.sender;
         console.log('Creating NOTIFY NFT');
     }
