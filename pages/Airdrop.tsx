@@ -29,7 +29,6 @@ export default function Airdrop() {
   const checkClaimed = async () => {
     if (account) {
       let claimed = await checkIfClaimed(account);
-      console.log(claimed);
       setClaimed(claimed);
     }
   };
