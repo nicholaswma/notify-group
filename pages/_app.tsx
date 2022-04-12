@@ -15,13 +15,7 @@ const colors = {
     700: "#2a69ac",
   },
 };
-const navigation: String[] = [
-  "Mint",
-  "Home",
-  "Discord",
-  "Marketplace",
-  "Account",
-];
+const navigation: String[] = ["Mint", "Airdrop", "Discord", "Account"];
 const NFTCon: string = "0xdf72c3098c6a69e1d1540a00432c4bd0d81a11cd";
 const NGTCon: string = "0x2F1549B5E1bE74b8b4d6311858d3e25f7D9c82Bf";
 

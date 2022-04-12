@@ -1,8 +1,19 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import React from "react";
+import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
+import React, { useContext, useState } from "react";
 import Image from "next/image";
+import { verifyNFT } from "../utils/Operations";
+import { AccountContext } from "../context";
 
 export default function discord() {
+  const account = useContext(AccountContext);
+  const [own, setOwn] = useState(false);
+  const verify = async () => {
+    if (account) {
+      let request = await verifyNFT(account);
+      setOwn(request);
+    }
+  };
+
   return (
     <>
       <Flex justifyContent="center">
@@ -17,6 +28,16 @@ export default function discord() {
               To gain membership to Discord, please be sure to mint an NFT
               Membership to NotifyGroup
             </Text>
+            <Button onClick={verify}>
+              {own ? "Verified!" : "Verify NFT Ownership"}
+            </Button>
+            {own ? (
+              <Link href="https://discord.com" isExternal>
+                <Button>Join Discord</Button>
+              </Link>
+            ) : (
+              <></>
+            )}
           </Box>
         </Flex>
       </Flex>

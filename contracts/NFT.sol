@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 contract NFT is ERC721URIStorage {
     using Counters for Counters.Counter;
     uint256 public cost = 0.005 ether;
+    mapping(address => uint) public index;
     mapping(address => bool) claimedAirDrop;
     address[] public requested;
     address public owner;
@@ -32,7 +33,17 @@ contract NFT is ERC721URIStorage {
 
     function requestAirDrop() public {
         require(claimedAirDrop[msg.sender] == false);
+        index[msg.sender] = requested.length;
+        claimedAirDrop[msg.sender] = true;
         requested.push(msg.sender);
+    }
+
+    function completeAirDrop(uint idx) public {
+        require(msg.sender == owner, 'NOT OWNER');
+        require(claimedAirDrop[requested[idx]] == true);
+        require(idx < requested.length, 'invalid request');
+        requested[idx] = requested[requested.length - 1];
+        requested.pop();
     }
 
     function getRequested() public view returns(address[] memory) {

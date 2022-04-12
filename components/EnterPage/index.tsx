@@ -12,7 +12,7 @@ export default function index() {
         <Image src="/Assets/logos/main.png" height="800px" width="800px" />
       </Flex>
       <Flex justifyContent="center">
-        <Button onClick={() => router.push("/home")}>Enter</Button>
+        <Button onClick={() => router.push("/Mint")}>Enter</Button>
       </Flex>
     </Flex>
   );
