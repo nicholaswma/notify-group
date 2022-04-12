@@ -2,6 +2,7 @@ import { Box, Button, Flex, Link, Text } from "@chakra-ui/react";
 import React, { useContext, useState } from "react";
 import Image from "next/image";
 import { verifyNFT } from "../utils/Operations";
+import discord from "../public/Assets/Logos/discord-logo.svg";
 import { AccountContext } from "../context";
 
 export default function Discord() {
@@ -19,7 +20,7 @@ export default function Discord() {
       <Flex justifyContent="center">
         <Flex flexDir="column">
           <Image
-            src="/Assets/logos/discord-logo.svg"
+            src={discord}
             width="200px"
             height="200px"
             alt="discordlogo"

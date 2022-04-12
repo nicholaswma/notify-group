@@ -1,5 +1,7 @@
-import { Flex, Box, Text, Image, Button, Spinner } from "@chakra-ui/react";
+import { Flex, Box, Text, Button, Spinner } from "@chakra-ui/react";
+import Image from "next/image";
 import React, { useState, useContext, useEffect } from "react";
+import NFTImage from "../public/Assets/nft-image.png";
 import { mintNFT, getRemaining } from "../utils/Operations";
 
 export default function Mint() {
@@ -37,12 +39,7 @@ export default function Mint() {
   return (
     <Flex justifyContent="center">
       <Flex flexDir="column" justifyContent="center">
-        <Image
-          src="/Assets/nft-image.png"
-          width="400px"
-          height="auto"
-          alt="nft"
-        />
+        <Image src={NFTImage} width="400px" height="400px" alt="nft" />
         <Box textAlign="center" width="400px">
           <Text textAlign={"center"}>
             Join NotifyGroup by minting a membership! 200 NGT Airdropped at mint
