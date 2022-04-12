@@ -2,8 +2,10 @@ import { ethers } from "ethers";
 import NFT from "./ABI/NFT.json";
 import NGT from "./ABI/NGToken.json";
 
-const NFTCon: string = "0xFe5255eeF9248F4871be993A20bd15387A4522A8";
-const NGTCon: string = "0xF4e9784aF87E2545f6dFd9a58E6Db3786d727ea0";
+// const NFTCon: string = "0xFe5255eeF9248F4871be993A20bd15387A4522A8";
+// const NGTCon: string = "0xF4e9784aF87E2545f6dFd9a58E6Db3786d727ea0";
+const NFTCon: string = "0xb8750bDda461cC12551Cb13E924E9d4329fdc3be";
+const NGTCon: string = "0x09D29f77f2c082CE322F8eb94D803b6058Ee78dB";
 
 export const requestAirdrop = async () => {
   const { ethereum } = window;
