@@ -9,6 +9,7 @@ import {
   getRequested,
   checkIfClaimed,
   approveAirdrop,
+  updateRequested,
 } from "../utils/Operations";
 
 export default function Airdrop() {
@@ -32,6 +33,10 @@ export default function Airdrop() {
       setClaimed(claimed);
     }
   };
+  const completeAirDrop = async (address: string) => {
+    await updateRequested(address);
+    await checkClaimed();
+  };
 
   useEffect(() => {
     checkClaimed();
@@ -53,7 +58,13 @@ export default function Airdrop() {
                 {requested.map((ele, idx) => (
                   <Box border={"1px solid"} padding="1em">
                     <Text key={idx}>{ele}</Text>
-                    <Button>Complete</Button>
+                    <Button
+                      onClick={() => {
+                        completeAirDrop(ele);
+                      }}
+                    >
+                      Complete
+                    </Button>
                     <Button
                       onClick={() => {
                         approveAirdrop(ele);
