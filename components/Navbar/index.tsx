@@ -2,7 +2,7 @@ import { Image, Flex, Button, HStack, chakra, Link } from "@chakra-ui/react";
 import Logo from "../../public/Assets/Logos/main.png";
 import { useRouter } from "next/router";
 
-export default function index({ navigation, connect, account }: any) {
+export default function Index({ navigation, connect, account }: any) {
   const router = useRouter();
   return (
     <chakra.header>

@@ -1,6 +1,6 @@
 import { ethers } from "ethers";
-import NFT from "../artifacts/contracts/NFT.sol/NFT.json";
-import NGT from "../artifacts/contracts/NGT.sol/NGToken.json";
+import NFT from "./ABI/NFT.json";
+import NGT from "./ABI/NGToken.json";
 
 const NFTCon: string = "0xFe5255eeF9248F4871be993A20bd15387A4522A8";
 const NGTCon: string = "0xF4e9784aF87E2545f6dFd9a58E6Db3786d727ea0";

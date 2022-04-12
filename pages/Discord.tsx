@@ -4,7 +4,7 @@ import Image from "next/image";
 import { verifyNFT } from "../utils/Operations";
 import { AccountContext } from "../context";
 
-export default function discord() {
+export default function Discord() {
   const account = useContext(AccountContext);
   const [own, setOwn] = useState(false);
   const verify = async () => {
@@ -22,6 +22,7 @@ export default function discord() {
             src="/Assets/logos/discord-logo.svg"
             width="200px"
             height="200px"
+            alt="discordlogo"
           ></Image>
           <Box width="150px" textAlign="center" justifyContent={"center"}>
             <Text>

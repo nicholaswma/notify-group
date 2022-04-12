@@ -55,8 +55,8 @@ export default function Airdrop() {
               <Button onClick={getRequest}>Get Requested</Button>
               <Flex flexDir="column" padding="1em">
                 {requested.map((ele, idx) => (
-                  <Box border={"1px solid"} padding="1em">
-                    <Text key={idx}>{ele}</Text>
+                  <Box border={"1px solid"} key={idx} padding="1em">
+                    <Text>{ele}</Text>
                     <Button
                       onClick={() => {
                         completeAirDrop(ele);
