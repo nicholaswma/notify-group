@@ -45,8 +45,10 @@ export default function Airdrop() {
   return (
     <Flex justifyContent="center">
       <Flex flexDir="column" justifyContent="center">
-        <Box textAlign="center">
-          <Text textAlign={"center"}>Claim Airdrop!</Text>
+        <Box textAlign="center" padding="1em">
+          <Text textAlign={"center"} padding="1em">
+            Claim Airdrop!
+          </Text>
           <Button onClick={requestAirdrop} disabled={claimed || !account}>
             Claim
           </Button>
@@ -79,6 +81,7 @@ export default function Airdrop() {
             <></>
           )}
         </Box>
+        <Text>Token Addresss: 0x09D29f77f2c082CE322F8eb94D803b6058Ee78dB</Text>
       </Flex>
     </Flex>
   );
